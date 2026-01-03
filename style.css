@@ -165,69 +165,90 @@ footer p { color: var(--gray); font-size: 0.85rem; margin: 0; }
     font-size: 0.85rem;
 }
 
-/* --- 모바일 통합 대응 (768px 이하) --- */
 @media (max-width: 768px) {
     /* 공통 레이아웃 */
     .container { padding: 0 20px; }
     .hero h1 { font-size: 4rem; }
     
-    /* 1. Works 프로젝트 (기존 그리드 레이아웃 유지) */
-    /* 기존 .work-row의 grid-template-columns: 1fr 1fr 설정이 유지되어 2열 구조가 유지됩니다. */
+    /* 1. Works 프로젝트 - 2열 구조를 화면에 딱 맞게 */
     .work-grid { gap: 40px; }
-    .work-row { gap: 20px; }
+    .work-row { 
+        gap: 15px; /* 좌우 간격 줄임 */
+        grid-template-columns: 1fr 1fr; /* 2열 유지 */
+    }
 
-    /* 2. 프로젝트 제목 하단으로 태그 나열 */
+    /* 이미지 비율 조정 - 화면에 꽉 차게 */
+    .work-image-wrapper.small {
+        aspect-ratio: 1/1; /* 정사각형으로 변경 */
+    }
+
+    /* 2. 제목과 해시태그 - 세로 배치로 변경 */
     .work-info {
         flex-direction: column; /* 세로 배치 */
         align-items: flex-start; /* 왼쪽 정렬 */
-        gap: 8px; /* 제목과 태그 사이 간격 */
+        gap: 10px; /* 제목과 태그 사이 간격 */
+        margin-top: 12px; /* 이미지와 간격 줄임 */
     }
+    
     .work-title {
-        font-size: 1.2rem; /* 모바일 가독성 조정 */
+        font-size: 1.1rem; /* 제목 크기 줄임 */
         width: 100%;
-        white-space: normal;
+        margin: 0;
+        line-height: 1.2;
     }
+    
+    /* 3. 해시태그 - 3줄로 자동 나열 */
     .work-tags {
         display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
+        flex-wrap: wrap; /* 자동 줄바꿈 */
+        gap: 6px; /* 태그 사이 간격 */
+        width: 100%;
     }
+    
     .tag {
-        padding: 3px 8px;
-        font-size: 0.65rem;
-        width: auto; /* 텍스트 크기에 맞춤 */
-        border-radius: 2px;
-        display: inline-block; /* 이 줄 추가! */
-        white-space: nowrap; /* 이 줄 추가! */
+        padding: 4px 10px;
+        font-size: 0.6rem; /* 크기 더 작게 */
+        width: auto; /* 텍스트에 맞춤 */
+        border-radius: 3px;
+        display: inline-block;
+        white-space: nowrap;
     }
 
+    /* INFO 원 크기 조정 */
+    .info-circle {
+        width: 60px;
+        height: 60px;
+        top: 15px;
+        right: 15px;
+        font-size: 0.55rem;
+    }
     
-    /* 3. 이메일 & 카피 버튼: 이미지처럼 세로로 나열 (위/아래 2단) */
+    /* 기타 요소 최적화 */
+    .info-row { grid-template-columns: 1fr; gap: 30px; }
+    .service-item { font-size: 2.2rem; }
+    .exp-row { grid-template-columns: 1fr; gap: 5px; font-size: 1rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 30px; }
+    
+    /* 이메일 & 카피 버튼 */
     .cta-btns {
         display: flex !important;
-        flex-direction: column !important; /* 가로가 아닌 세로 방향으로 설정 */
+        flex-direction: column !important;
         align-items: center !important;
-        gap: 15px !important; /* 버튼 사이 간격 */
+        gap: 15px !important;
         width: 100%;
     }
 
     .btn-mail, .btn-copy {
-        width: 100% !important; /* 가로 꽉 차게 */
-        max-width: 320px !important; /* 너무 길어지지 않게 이미지 느낌의 적당한 너비 */
+        width: 100% !important;
+        max-width: 320px !important;
         padding: 18px 0 !important; 
         font-size: 1rem !important;
         margin: 0 !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        border-radius: 50px !important; /* 둥근 캡슐 모양 유지 */
+        border-radius: 50px !important;
     }
-
-    /* 기타 요소 최적화 */
-    .info-row { grid-template-columns: 1fr; gap: 30px; }
-    .service-item { font-size: 2.2rem; }
-    .exp-row { grid-template-columns: 1fr; gap: 5px; font-size: 1rem; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 30px; }
 }
 
 /* --- Project Detail Page Styles --- */
