@@ -1,0 +1,440 @@
+:root {
+    --bg: #000;
+    --text: #fff;
+    --gray: #777;
+    --dark-gray: #333;
+}
+
+* { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0; 
+    overflow-x: hidden;
+}
+
+.container { max-width: 1600px; margin: 0 auto; padding: 0 50px; }
+
+/* 로고.css에 추가 */
+.logo a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: inherit;        /* 부모(div)의 흰색 글자색 그대로 상속 */
+    display: block;        /* 클릭 영역을 박스 전체로 확대 */
+}
+
+/* Header */
+header { display: flex; justify-content: space-between; padding: 50px 0; }
+.logo { font-weight: 700; font-size: 1rem; letter-spacing: 1px; }
+nav a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 0.85rem; opacity: 0.6; transition: 0.3s; }
+nav a:hover { opacity: 1; }
+
+/* Hero */
+.hero { padding: 12vh 0 10vh; }
+.hero-line { overflow: hidden; padding-bottom: 0.15em; margin-bottom: -0.1em; }
+.hero h1 {
+    font-size: clamp(3.5rem, 12vw, 9.5rem);
+    font-weight: 400; margin: 0;
+    line-height: normal; letter-spacing: -0.04em;
+}
+
+/* Animations */
+.reveal-text { transform: translateY(110%); transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); display: block; }
+.reveal-text.active { transform: translateY(0); }
+.delay-1 { transition-delay: 0.15s; }
+
+.reveal-fade { opacity: 0; transform: translateY(40px); transition: 1s ease; }
+.reveal-fade.active { opacity: 1; transform: translateY(0); }
+
+/* Works */
+.section-header { display: flex; justify-content: space-between; align-items: center; padding: 80px 0 30px; border-bottom: 1px solid #222; margin-bottom: 50px; font-size: 0.8rem; }
+.all-works-btn { color: #fff; text-decoration: none; border: 1px solid #444; padding: 10px 22px; border-radius: 30px; transition: 0.3s; }
+.all-works-btn:hover { background: #fff; color: #000; }
+
+.work-grid { display: flex; flex-direction: column; gap: 80px; }
+.work-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.work-item { text-decoration: none; color: #fff; position: relative; }
+
+.work-image-wrapper { position: relative; overflow: hidden; background: #111; aspect-ratio: 16/9; }
+.work-image-wrapper.small { aspect-ratio: 1/1.1; }
+.work-image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.work-item:hover img { transform: scale(1.05); }
+
+.info-circle {
+    position: absolute; top: 40px; right: 40px; width: 100px; height: 100px; 
+    background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    font-size: 0.7rem; opacity: 0; transform: scale(0.5); transition: 0.5s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.work-item:hover .info-circle { opacity: 1; transform: scale(1); }
+
+.work-info { display: flex; justify-content: space-between; margin-top: 20px; }
+.work-title { font-size: 2.2rem; font-weight: 400; margin: 0; }
+.work-category { color: var(--gray); font-size: 0.9rem; }
+
+/* Info Section (What I Do & Exp) */
+.info-section { margin-top: 150px; border-top: 1px solid #1a1a1a; }
+.info-row { display: grid; grid-template-columns: 1fr 2fr; padding: 80px 0; border-bottom: 1px solid #1a1a1a; }
+.info-label { font-size: 0.85rem; color: #fff; text-transform: none; }
+
+.services { display: flex; flex-direction: column; gap: 5px; }
+.service-item { font-size: 3.5rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; }
+.service-item.faded { color: var(--dark-gray); }
+
+.exp-row { display: grid; grid-template-columns: 1.5fr 1fr 1fr; padding: 15px 0; border-bottom: 1px solid #111; font-size: 1.1rem; }
+.exp-row .company { font-weight: 700; }
+.exp-row .period { text-align: right; color: var(--gray); }
+
+/* Contact CTA */
+.contact-cta { padding: 150px 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.contact-cta p { font-size: 1.6rem; line-height: 1.4; margin-bottom: 40px; color: #fff; }
+.cta-btns { display: flex; gap: 15px; }
+.btn-mail { background: #fff; color: #000; padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; }
+.btn-copy { background: #000; color: #fff; border: 1px solid var(--dark-gray); padding: 18px 35px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 1rem; }
+
+/* Footer */
+footer { padding: 80px 0 50px; }
+.footer-line { border-top: 1px solid #1a1a1a; margin-bottom: 40px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.footer-socials { display: flex; gap: 40px; }
+.footer-socials a { color: #fff; text-decoration: none; font-weight: 700; font-size: 1.1rem; }
+footer p { color: var(--gray); font-size: 0.85rem; margin: 0; }
+
+
+/* Works 페이지 전용 푸터 여백 */
+.works-footer {
+    padding-top: 200px; /* 메인 페이지의 여백감을 위해 아주 넓게 설정 */
+    padding-bottom: 60px;
+}
+
+/* 2*2 그리드 내부 정보 디자인 (첨부 이미지 참고) */
+.work-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.work-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.work-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.tag {
+    border: 1px solid #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* 푸터 하단 소셜 링크 (이미지 그대로 재현) */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 35px;
+}
+
+.footer-socials a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.copyright {
+    color: #444;
+    font-size: 0.85rem;
+}
+
+/* --- 모바일 통합 대응 (768px 이하) --- */
+@media (max-width: 768px) {
+    /* 공통 레이아웃 */
+    .container { padding: 0 20px; }
+    .hero h1 { font-size: 4rem; }
+    
+    /* 1. Works 프로젝트 (기존 그리드 레이아웃 유지) */
+    /* 기존 .work-row의 grid-template-columns: 1fr 1fr 설정이 유지되어 2열 구조가 유지됩니다. */
+    .work-grid { gap: 40px; }
+    .work-row { gap: 20px; }
+
+    /* 2. 프로젝트 제목 하단으로 태그 나열 */
+    .work-info {
+        flex-direction: column; /* 세로 배치 */
+        align-items: flex-start; /* 왼쪽 정렬 */
+        gap: 8px; /* 제목과 태그 사이 간격 */
+    }
+    .work-title {
+        font-size: 1.2rem; /* 모바일 가독성 조정 */
+        width: 100%;
+        white-space: normal;
+    }
+    .work-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    .tag {
+        padding: 3px 8px;
+        font-size: 0.65rem;
+        width: auto; /* 텍스트 크기에 맞춤 */
+        border-radius: 2px;
+    }
+
+    
+    /* 3. 이메일 & 카피 버튼: 이미지처럼 세로로 나열 (위/아래 2단) */
+    .cta-btns {
+        display: flex !important;
+        flex-direction: column !important; /* 가로가 아닌 세로 방향으로 설정 */
+        align-items: center !important;
+        gap: 15px !important; /* 버튼 사이 간격 */
+        width: 100%;
+    }
+
+    .btn-mail, .btn-copy {
+        width: 100% !important; /* 가로 꽉 차게 */
+        max-width: 320px !important; /* 너무 길어지지 않게 이미지 느낌의 적당한 너비 */
+        padding: 18px 0 !important; 
+        font-size: 1rem !important;
+        margin: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        border-radius: 50px !important; /* 둥근 캡슐 모양 유지 */
+    }
+
+    /* 기타 요소 최적화 */
+    .info-row { grid-template-columns: 1fr; gap: 30px; }
+    .service-item { font-size: 2.2rem; }
+    .exp-row { grid-template-columns: 1fr; gap: 5px; font-size: 1rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 30px; }
+}
+
+/* --- Project Detail Page Styles --- */
+
+/* 1. Info Header */
+.project-info-header { padding: 80px 0 120px; border-top: 1px solid #1a1a1a; }
+.info-top-row { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; margin-bottom: 80px; }
+.info-label { font-size: 1rem; font-weight: 600; text-transform: uppercase; }
+.info-description p { font-size: clamp(1.2rem, 3vw, 1.85rem); line-height: 1.4; color: #fff; margin: 0; }
+
+.info-bottom-row { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; align-items: flex-end; }
+.small-label { display: block; color: var(--gray); font-size: 0.8rem; margin-bottom: 25px; }
+.deliverables-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px 40px; }
+.deliverables-list li { font-size: 1.1rem; border-bottom: 1px solid #1a1a1a; padding-bottom: 8px; }
+
+.meta-data-box { display: flex; gap: 12px; flex-wrap: wrap; }
+.meta-item { 
+    background: #fff; color: #000; padding: 12px 24px; border-radius: 6px; 
+    font-size: 0.9rem; font-weight: 600; text-decoration: none; 
+}
+.visit-btn { transition: 0.3s; }
+.visit-btn:hover { background: #eee; }
+
+/* 1. 갤러리 섹션의 배경색과 간격 초기화 */
+.project-gallery {
+    width: 100% !important;
+    background: #000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* 2. 갤러리 내부의 컨테이너를 1000px로 강제 고정 */
+.project-gallery .container {
+    max-width: 1000px !important; /* 800px 이미지도 여기 맞춰 늘어납니다 */
+    width: 100% !important;
+    margin: 0 auto !important;    /* 무조건 중앙 정렬 */
+    padding: 0 !important;        /* 좌우 여백 제거 */
+    display: block !important;    /* 내부 틈새 방지 */
+}
+
+/* 3. 이미지 상하좌우 모든 틈 제거 및 1000px 강제 확장 */
+.project-gallery .gallery-img {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0 !important;    /* 이미지 밑단 틈 제거 */
+    font-size: 0 !important;
+}
+
+.project-gallery .gallery-img img {
+    width: 100% !important;       /* 부모(1000px) 너비에 강제 맞춤 */
+    height: auto !important;
+    display: block !important;    /* 인라인 요소 특유의 하단 여백 제거 */
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* 3. More Works Section */
+.next-projects-section { padding: 180px 0 100px; } /* 다른 페이지와 여백 통일 */
+.section-sub-title { font-size: 0.8rem; color: var(--gray); letter-spacing: 2px; margin-bottom: 50px; }
+.mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.mini-item { text-decoration: none; color: #fff; group: hover; }
+.mini-thumb { aspect-ratio: 16/10; overflow: hidden; background: #111; margin-bottom: 20px; }
+.mini-thumb img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.mini-item:hover .mini-thumb img { transform: scale(1.05); }
+.m-title { display: block; font-size: 1.2rem; font-weight: 500; margin-bottom: 10px; }
+
+
+/* --- Contact Page Styles --- */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15vh 0 20vh; /* 메인과 유사한 시원한 여백 */
+    border-top: 1px solid #222; /* 상단 구분선 */
+}
+
+.contact-left {
+    flex: 1;
+}
+
+.contact-title {
+    font-size: clamp(3rem, 8vw, 6rem); /* 메인 Hero 폰트 사이즈 계승 */
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: -0.03em;
+}
+
+.contact-right {
+    flex: 1.5;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2열 배치 */
+    gap: 60px 40px;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    color: var(--gray); /* 기존 설정된 회색 사용 */
+    text-decoration: none;
+    transition: 0.3s;
+    line-height: 1.4;
+}
+
+a.info-value:hover {
+    color: #fff;
+}
+
+/* Footer 하단 레이아웃 (이미지 기반 재현) */
+.footer-bottom { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.footer-socials { 
+    display: flex; 
+    gap: 35px; 
+}
+
+.footer-socials a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 0.9rem; 
+    font-weight: 700; 
+}
+
+/* 모바일 대응 */
+@media (max-width: 992px) {
+    .contact-container { flex-direction: column; gap: 80px; padding: 10vh 0; }
+    .contact-info-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+
+/* 1. 목록 버튼 컨테이너: 완벽한 중앙 정렬 */
+.back-to-list-container {
+    width: 100%;
+    display: flex !important;
+    justify-content: center !important; /* 가로 중앙 */
+    align-items: center !important;     /* 세로 중앙 */
+    padding: 60px 0 20px !important;    /* 위쪽 60px, 아래 20px로 적절한 거리감 */
+    margin: 0 auto !important;
+    border-top: 1px solid #1a1a1a;      /* 갤러리와 구분하는 선 추가 */
+}
+
+/* 2. 버튼 디자인: 세련된 타원형 */
+.back-btn {
+    display: inline-block;
+    text-decoration: none !important;
+    color: #fff !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 14px 35px;
+    border: 1px solid #444;
+    border-radius: 50px;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+/* 3. More Works 섹션: 버튼과 너무 붙지 않게 조정 */
+.next-projects-section {
+    padding-top: 40px !important; 
+    margin-top: 0 !important;
+}
+
+.next-projects-section h2 {
+    text-align: center; /* 제목도 버튼처럼 가운데로 정렬하면 더 예뻐요 */
+    margin-bottom: 40px !important;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: #777;
+}
+
+/* 4. 사라진 탑 버튼(화살표) 강제 복구 */
+#scrollTopBtn {
+    position: fixed !important;
+    bottom: 40px !important;
+    right: 40px !important;
+    width: 50px !important;
+    height: 50px !important;
+    background-color: #ffffff !important; /* 흰색 배경 */
+    color: #000000 !important;           /* 검은색 화살표 */
+    border-radius: 50% !important;
+    z-index: 9999 !important;             /* 최상단 레이어 */
+    display: none;                         /* 스크롤 전에는 숨김 */
+    justify-content: center !important;
+    align-items: center !important;
+    border: none !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+    cursor: pointer !important;
+}
+
+#scrollTopBtn .arrow {
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
