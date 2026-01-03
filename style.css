@@ -169,6 +169,19 @@ footer p { color: var(--gray); font-size: 0.85rem; margin: 0; }
     /* 공통 레이아웃 */
     .container { padding: 0 20px; }
     .hero h1 { font-size: 4rem; }
+    header {
+        padding: 30px 0;
+    }
+    
+    nav {
+        display: flex;
+        gap: 15px; /* 간격 줄임 */
+    }
+    
+    nav a {
+        margin-left: 0; /* 기존 margin 제거 */
+        font-size: 0.75rem; /* 글씨 조금 작게 */
+    }
     
     /* 1. Works 프로젝트 - 2열 구조를 화면에 딱 맞게 */
     .work-grid { gap: 40px; }
@@ -272,39 +285,53 @@ footer p { color: var(--gray); font-size: 0.85rem; margin: 0; }
 .visit-btn { transition: 0.3s; }
 .visit-btn:hover { background: #eee; }
 
-/* 1. 갤러리 섹션의 배경색과 간격 초기화 */
+//* 1. 갤러리 섹션의 배경색과 간격 초기화 */
 .project-gallery {
     width: 100% !important;
+    max-width: 100% !important;
     background: #000 !important;
     padding: 0 !important;
     margin: 0 !important;
+    overflow-x: hidden !important;
 }
 
 /* 2. 갤러리 내부의 컨테이너를 1000px로 강제 고정 */
 .project-gallery .container {
-    max-width: 1000px !important; /* 800px 이미지도 여기 맞춰 늘어납니다 */
+    max-width: 1000px !important;
     width: 100% !important;
-    margin: 0 auto !important;    /* 무조건 중앙 정렬 */
-    padding: 0 !important;        /* 좌우 여백 제거 */
-    display: block !important;    /* 내부 틈새 방지 */
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
 }
 
-/* 3. 이미지 상하좌우 모든 틈 제거 및 1000px 강제 확장 */
+/* 3. 이미지 상하좌우 모든 틈 제거 */
 .project-gallery .gallery-img {
     width: 100% !important;
+    max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
-    line-height: 0 !important;    /* 이미지 밑단 틈 제거 */
+    line-height: 0 !important;
     font-size: 0 !important;
+    overflow: hidden !important;
 }
 
 .project-gallery .gallery-img img {
-    width: 100% !important;       /* 부모(1000px) 너비에 강제 맞춤 */
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
-    display: block !important;    /* 인라인 요소 특유의 하단 여백 제거 */
-    margin: 0 !important;
+    display: block !important;
+    margin: 0 auto !important;
     padding: 0 !important;
     border: none !important;
+    object-fit: contain !important;
+}
+
+/* 모바일에서 컨테이너 조정 */
+@media (max-width: 768px) {
+    .project-gallery .container {
+        max-width: 100% !important;
+        padding: 0 15px !important;
+    }
 }
 
 /* 3. More Works Section */
