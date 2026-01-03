@@ -161,93 +161,91 @@ footer p { color: var(--gray); font-size: 0.85rem; margin: 0; }
     font-size: 0.85rem;
 }
 
-/* --- 모바일 통합 대응 (768px 이하) --- */
 @media (max-width: 768px) {
     /* 공통 레이아웃 */
     .container { padding: 0 20px; }
     .hero h1 { font-size: 4rem; }
     
-    /* 1. Works 프로젝트 (기존 그리드 레이아웃 유지) */
-    /* 기존 .work-row의 grid-template-columns: 1fr 1fr 설정이 유지되어 2열 구조가 유지됩니다. */
+    /* Works 페이지 */
     .work-grid { gap: 40px; }
     .work-row { gap: 20px; }
-
-    /* 2. 프로젝트 제목 하단으로 태그 나열 */
+    
     .work-info {
-        flex-direction: column; /* 세로 배치 */
-        align-items: flex-start; /* 왼쪽 정렬 */
-        gap: 8px; /* 제목과 태그 사이 간격 */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
+    
     .work-title {
-        font-size: 1.2rem; /* 모바일 가독성 조정 */
+        font-size: 1.2rem;
         width: 100%;
         white-space: normal;
     }
+    
     .work-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 5px;
     }
+    
     .tag {
         padding: 3px 8px;
         font-size: 0.65rem;
-        width: auto; /* 텍스트 크기에 맞춤 */
+        width: auto;
         border-radius: 2px;
-
-        /* Project Detail 페이지 - INTRO 섹션 글자 크기 조정 */
+    }
+    
+    /* Project Detail 페이지 - INTRO 섹션 글자 크기 조정 */
     .info-description p {
-        font-size: 1rem !important; /* 원래보다 작게 */
+        font-size: 1rem !important;
         line-height: 1.5 !important;
     }
     
     .deliverables-list li {
-        font-size: 0.9rem !important; /* Deliverables 항목 */
+        font-size: 0.9rem !important;
     }
     
     .meta-item {
-        font-size: 0.8rem !important; /* Year, Client, Visit Website 버튼 */
+        font-size: 0.8rem !important;
         padding: 10px 18px !important;
     }
     
     .info-label {
-        font-size: 0.85rem !important; /* INTRO, Deliverables 라벨 */
+        font-size: 0.85rem !important;
     }
     
-    /* Project Info Header 여백도 조정 */
     .project-info-header {
         padding: 50px 0 80px !important;
     }
     
     .info-top-row,
     .info-bottom-row {
-        grid-template-columns: 1fr !important; /* 모바일에서 1열로 */
+        grid-template-columns: 1fr !important;
         gap: 30px !important;
     }
-    }
-
     
-    /* 3. 이메일 & 카피 버튼: 이미지처럼 세로로 나열 (위/아래 2단) */
+    /* 이메일 & 카피 버튼 */
     .cta-btns {
         display: flex !important;
-        flex-direction: column !important; /* 가로가 아닌 세로 방향으로 설정 */
+        flex-direction: column !important;
         align-items: center !important;
-        gap: 15px !important; /* 버튼 사이 간격 */
+        gap: 15px !important;
         width: 100%;
     }
-
+    
     .btn-mail, .btn-copy {
-        width: 100% !important; /* 가로 꽉 차게 */
-        max-width: 320px !important; /* 너무 길어지지 않게 이미지 느낌의 적당한 너비 */
-        padding: 18px 0 !important; 
+        width: 100% !important;
+        max-width: 320px !important;
+        padding: 18px 0 !important;
         font-size: 1rem !important;
         margin: 0 !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        border-radius: 50px !important; /* 둥근 캡슐 모양 유지 */
+        border-radius: 50px !important;
     }
-
-    /* 기타 요소 최적화 */
+    
+    /* 기타 요소 */
     .info-row { grid-template-columns: 1fr; gap: 30px; }
     .service-item { font-size: 2.2rem; }
     .exp-row { grid-template-columns: 1fr; gap: 5px; font-size: 1rem; }
