@@ -193,6 +193,36 @@ footer p { color: var(--gray); font-size: 0.85rem; margin: 0; }
         font-size: 0.65rem;
         width: auto; /* 텍스트 크기에 맞춤 */
         border-radius: 2px;
+
+        /* Project Detail 페이지 - INTRO 섹션 글자 크기 조정 */
+    .info-description p {
+        font-size: 1rem !important; /* 원래보다 작게 */
+        line-height: 1.5 !important;
+    }
+    
+    .deliverables-list li {
+        font-size: 0.9rem !important; /* Deliverables 항목 */
+    }
+    
+    .meta-item {
+        font-size: 0.8rem !important; /* Year, Client, Visit Website 버튼 */
+        padding: 10px 18px !important;
+    }
+    
+    .info-label {
+        font-size: 0.85rem !important; /* INTRO, Deliverables 라벨 */
+    }
+    
+    /* Project Info Header 여백도 조정 */
+    .project-info-header {
+        padding: 50px 0 80px !important;
+    }
+    
+    .info-top-row,
+    .info-bottom-row {
+        grid-template-columns: 1fr !important; /* 모바일에서 1열로 */
+        gap: 30px !important;
+    }
     }
 
     
