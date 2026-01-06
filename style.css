@@ -83,7 +83,7 @@ nav a:hover { opacity: 1; }
 .service-item { font-size: 3.5rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; }
 .service-item.faded { color: var(--dark-gray); }
 
-.exp-row { display: grid; grid-template-columns: 1.5fr 1fr 1fr; padding: 15px 0; border-bottom: 1px solid #111; font-size: 1.1rem; }
+.exp-row { display: grid; grid-template-columns: 1.5fr 1fr 1fr; align-items: baseline; padding: 15px 0; border-bottom: 1px solid #111; font-size: 1.1rem; }
 .exp-row .company { font-weight: 700; }
 .exp-row .period { text-align: right; color: var(--gray); }
 
